@@ -1,3 +1,36 @@
-@use "utils/mixins";
-@use "utils/type";
-@use "utils/variables";
+@use "utils/mixins" as *;
+@use "utils/type" as *;
+@use "utils/variables" as *;
+@use "utils/reset" as *;
+
+html, body {
+  overflow: hidden;
+}
+
+.viewport {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.world {
+  width: 300vw;
+  height: 300vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $bg-color;
+  overflow: scroll;
+}
+
+.title {
+    max-width: 70ch;
+}
+
+.backToCenter {
+  position: absolute;
+  width: 10rem;
+  left: calc(50% - 10rem / 2);
+  bottom: 1.6rem;
+}
