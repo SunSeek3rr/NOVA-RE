@@ -2,35 +2,130 @@
 @use "utils/type" as *;
 @use "utils/variables" as *;
 @use "utils/reset" as *;
+@use "utils/_blobs" as *;
 
+html {
+  font-size: 62.5%;
+}
 html, body {
-  overflow: hidden;
+  background-color: $bg-color;
+  overflow-x: hidden;
 }
 
-.viewport {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
+.main {
+  width: 100%;
+  height: 200vh;
+
+  &__container {
+    padding: 0 1.6rem;
+  }
 }
 
-.world {
-  width: 300vw;
-  height: 300vh;
+.landing {
+  width: 100%;
+  height: 100svh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $bg-color;
-  overflow: scroll;
-}
+  position: relative;
 
-.title {
-    max-width: 70ch;
-}
+  &__title-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    margin-top: calc(3.3rem + 1.6rem);
+    z-index: 99;
+  }
 
-.backToCenter {
-  position: absolute;
-  width: 10rem;
-  left: calc(50% - 10rem / 2);
-  bottom: 1.6rem;
+  &__title {
+    font-size: 6.4rem;
+  }
+
+  &__arrow {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &__blobs {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 98;
+
+    & .blob {
+      position: absolute;
+      width: fit-content;
+      height: fit-content;
+    }
+
+    & .blob--topLeft {
+      top: 3.9rem;
+      left: -2.7rem;
+    }
+
+    & .blob--topRight {
+      top: -4.7rem;
+      left: 19.3rem;
+    }
+
+    & .blob--center {
+      top: 22.9rem;
+      left: 8.4rem;
+    }
+
+    & .blob--downLeft {
+      top: 44.4rem;
+      left: -10rem;
+    }
+
+    & .blob--downRight {
+      top: 49.3rem;
+      left: 29.6rem;
+    }
+
+  }
+
+  &__lines {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: .2;
+      z-index: 1;
+    }
+
+    &__line {
+      position: absolute;
+      background-color: $text-color;
+
+      &--horizontal {
+        height: 1px;
+        width: 100%;
+      }
+
+      &--horizontal:nth-of-type(2) {
+        transform: translateY(1.6rem);
+      }
+
+      &--horizontal:nth-of-type(3) {
+        transform: translateY( calc(100svh - 1.6rem) );
+      }
+
+      &--vertical {
+        width: 1px;
+        height: 100%;
+      }
+
+      &--vertical:nth-of-type(1) {
+        transform: translateX( .8rem );
+      }
+
+      &--vertical:nth-of-type(4) {
+        transform: translateX( calc(100svw - .8rem) );
+      }
+    }
 }
