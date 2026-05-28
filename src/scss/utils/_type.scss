@@ -22,4 +22,17 @@ h1, h2 {
   letter-spacing: -6%;
   color: $title-color;
   line-height: 100%;
+  text-transform: uppercase;
+}
+
+h2 {
+    position: relative;
+    font-size:  3.2rem;
+    margin-bottom: 8rem;
+}
+
+em {
+    color: $accent-color;
+    font-weight: 400;
+    font-style: normal;
 }

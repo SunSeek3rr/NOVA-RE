@@ -14,9 +14,28 @@ html, body {
 
 .main {
   width: 100%;
-  height: 200vh;
 
+  &::before, &::after {
+    display: block;
+    content: "";
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background-color: $text-color;
+    opacity: .2; 
+  }
+
+  &::before {
+    left: .8rem;
+  }
+
+  &::after {
+    right: .8rem;
+  }
+    
   &__container {
+    position: relative;
     padding: 0 1.6rem;
   }
 }
@@ -54,12 +73,6 @@ html, body {
     top: 0;
     left: 0;
     z-index: 98;
-
-    & .blob {
-      position: absolute;
-      width: fit-content;
-      height: fit-content;
-    }
 
     & .blob--topLeft {
       top: 3.9rem;
@@ -101,31 +114,190 @@ html, body {
     &__line {
       position: absolute;
       background-color: $text-color;
+      height: 1px;
+      width: 100%;
 
-      &--horizontal {
-        height: 1px;
-        width: 100%;
-      }
-
-      &--horizontal:nth-of-type(2) {
+      &:nth-of-type(1) {
         transform: translateY(1.6rem);
       }
 
-      &--horizontal:nth-of-type(3) {
+      &:nth-of-type(2) {
         transform: translateY( calc(100svh - 1.6rem) );
       }
+    }
+}
 
-      &--vertical {
-        width: 1px;
-        height: 100%;
+.intro {
+  margin-bottom: 8rem;
+
+  &__title {
+    text-align: end;
+    margin-right: 2.4rem;
+    margin-top: 25.6rem;
+  }
+
+  &__content {
+    margin-bottom: 8rem;
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+  }
+
+  &__p {
+    position: relative;
+
+    &--first {
+      margin-bottom: 3.2rem;
+      font-size: 2.3rem;
+      line-height: 160%;
+    }
+
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      height: 1px;
+      width: .7rem;
+      top: calc(50% - .5px);
+      right: -.7rem;
+      background-color: $text-color;
+      opacity: .2;
+    }
+  }
+
+  & .blob--intro {
+    position: static;
+    transform: translateX(20rem);
+  }
+
+}
+
+.composition {
+  position: relative;
+  &::before {
+    display: block;
+    content: "";
+    width: 1.6rem;
+    height: 1.6rem;
+    position: absolute;
+    top: -22.4rem;
+    left: - calc(1.59rem);
+    background-image: url(../../assets/images/arrow.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  }
+
+  &__title-container {
+    position: relative;
+    &::before {
+      display: block;
+      content: "";
+      height: 1px;
+      width: calc(100vw + 2.4rem + 1.6rem);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: - calc(2.4rem + 1.6rem);
+      background-color: $text-color;
+      opacity: .2;
+    }
+  }
+  &__title {
+    padding: 0 1.2rem;
+    margin-left: 1.2rem;
+    background-color: $bg-color;
+    width: fit-content;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+  }
+
+  &__item {
+    margin-left: 2rem;
+    &-title {
+      position: relative;
+      font-size: 2.3rem;
+      font-weight: 400;
+      margin-bottom: 3.2rem;
+
+      &::before {
+        display: block;
+        content: "";
+        height: 1px;
+        width: calc(1.6rem - .8rem - .5px);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: - calc(2rem + 0.7rem);
+        background-color: $text-color;
+        opacity: .2;
       }
 
-      &--vertical:nth-of-type(1) {
-        transform: translateX( .8rem );
-      }
-
-      &--vertical:nth-of-type(4) {
-        transform: translateX( calc(100svw - .8rem) );
+      &::after {
+        display: block;
+        content: "";
+        width: .8rem;
+        height: .8rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: - 1.95rem;
+        background-color: $accent-color;
       }
     }
+
+    &-text {
+      padding-left: 1.6rem;
+    }
+  }
+
+}
+
+.cube {
+  &-left {
+
+    &::before {
+      display: block;
+      content: "";
+      position: absolute;
+      top: calc(50%);
+      transform: translateY(-50%);
+      left: - calc(1.2rem + 1.2rem + .1rem);
+      width: 1.2rem;
+      height: 1.2rem;
+      background-color: $accent-color;
+
+    }
+
+    &--padding {
+      &::before{
+        left: - calc(1.2rem + 1.2rem + .1rem);
+
+      }
+    }
+
+  }
+  &-right {
+    
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: - calc(2.4rem + 1.2rem + .1rem);
+      width: 1.2rem;
+      height: 1.2rem;
+      background-color: $accent-color;
+
+    }
+  }
 }
