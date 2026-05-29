@@ -36,13 +36,13 @@ html, body {
     
   &__container {
     position: relative;
-    padding: 0 1.6rem;
+    padding: 0 $margin-global;
   }
 }
 
 .landing {
   width: 100%;
-  height: 100svh;
+  height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,12 +52,8 @@ html, body {
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
-    margin-top: calc(3.3rem + 1.6rem);
+    margin-top: calc(3.3rem + 1.6rem); // sizeArrow + gap
     z-index: 99;
-  }
-
-  &__title {
-    font-size: 6.4rem;
   }
 
   &__arrow {
@@ -118,42 +114,36 @@ html, body {
       width: 100%;
 
       &:nth-of-type(1) {
-        transform: translateY(1.6rem);
+        transform: translateY($margin-global);
       }
 
       &:nth-of-type(2) {
-        transform: translateY( calc(100svh - 1.6rem) );
+        transform: translateY( calc(100dvh - $margin-global) );
       }
     }
 }
 
 .intro {
-  margin-bottom: 8rem;
+  margin-bottom: $margin-bottom-section;
+  margin-top: $margin-top-intro;
 
   &__title {
     text-align: end;
-    margin-right: 2.4rem;
-    margin-top: 25.6rem;
+    margin-right: $margin-spacing-h2;
   }
 
   &__content {
-    margin-bottom: 8rem;
+    margin-bottom: $margin-intro-blob;
   }
 
   &__text-container {
     display: flex;
     flex-direction: column;
-    gap: 3.2rem;
+    gap: $margin-text-global;
   }
 
   &__p {
     position: relative;
-
-    &--first {
-      margin-bottom: 3.2rem;
-      font-size: 2.3rem;
-      line-height: 160%;
-    }
 
     &::after {
       display: block;
@@ -161,7 +151,8 @@ html, body {
       position: absolute;
       height: 1px;
       width: .7rem;
-      top: calc(50% - .5px);
+      top: 50%;
+      transform: translateY(-50%);
       right: -.7rem;
       background-color: $text-color;
       opacity: .2;
@@ -175,8 +166,123 @@ html, body {
 
 }
 
-.composition {
+.materiau {
+  width: 100%;
   position: relative;
+  
+  &__wrapper {
+    position: relative;
+    padding: $padding-section 0;
+    width: 100%;
+    min-height: max-content;
+  }
+
+  &__section {
+    
+    &--composition, &--fonctionnement {
+      z-index: 1;
+  
+    }
+
+    &--composition {
+      position: absolute;
+      // opacity: 0;
+    
+    }
+
+    &--fonctionnement {
+      position: relative;
+      opacity: 0;
+      visibility: hidden;
+
+
+
+      & .materiau__list {
+        margin-top: calc($margin-text-big / 2);
+      }
+    }
+  }
+
+  &__title-container {
+      position: relative;
+
+      &::before {
+        display: block;
+        content: "";
+        height: 1px;
+        width: calc(100vw + $margin-spacing-h2 + $margin-global);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: - calc($margin-spacing-h2 + $margin-global);
+        background-color: $text-color;
+        opacity: .2;
+      }
+    }
+
+    &__title {
+      padding: 0 $padding-material-h2;
+      margin-left: $padding-material-h2;
+      background: $material-bg-color;
+      width: fit-content;
+    }
+
+    &__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: $margin-end-list;
+    }
+  
+    &__item {
+      margin-left: $margin-left-list;
+      &-title {
+        position: relative;
+        font-size: $font-size-h3;
+        font-weight: 400;
+        margin-bottom: $margin-bottom-h3;
+  
+        &::before {
+          display: block;
+          content: "";
+          height: 1px;
+          width: calc($margin-global-half  - .5px);
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: - calc($margin-left-list + 0.7rem);
+          background-color: $text-color;
+          opacity: .2;
+        }
+  
+        &::after {
+          display: block;
+          content: "";
+          width: .8rem;
+          height: .8rem;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: - 1.95rem;
+          background-color: $accent-color;
+        }
+      }
+  
+      &-text {
+        padding-left: $padding-text-list;
+      }
+    }
+
+    &__text-container {
+      display: flex;
+      flex-direction: column;
+      gap: $margin-text-global;
+
+      & .p--big {
+        margin-top: calc($margin-text-big / 2);
+      }
+    }
+
   &::before {
     display: block;
     content: "";
@@ -191,75 +297,22 @@ html, body {
     background-position: 50% 50%;
   }
 
-  &__title-container {
-    position: relative;
-    &::before {
-      display: block;
-      content: "";
-      height: 1px;
-      width: calc(100vw + 2.4rem + 1.6rem);
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      left: - calc(2.4rem + 1.6rem);
-      background-color: $text-color;
-      opacity: .2;
-    }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -$margin-global;
+    height: 100%;
+    width: 100vw;
+    background: url(../../assets/images/materiau__bg.svg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
   }
-  &__title {
-    padding: 0 1.2rem;
-    margin-left: 1.2rem;
-    background-color: $bg-color;
-    width: fit-content;
-  }
-
-  &__list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 4.8rem;
-  }
-
-  &__item {
-    margin-left: 2rem;
-    &-title {
-      position: relative;
-      font-size: 2.3rem;
-      font-weight: 400;
-      margin-bottom: 3.2rem;
-
-      &::before {
-        display: block;
-        content: "";
-        height: 1px;
-        width: calc(1.6rem - .8rem - .5px);
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        left: - calc(2rem + 0.7rem);
-        background-color: $text-color;
-        opacity: .2;
-      }
-
-      &::after {
-        display: block;
-        content: "";
-        width: .8rem;
-        height: .8rem;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        left: - 1.95rem;
-        background-color: $accent-color;
-      }
-    }
-
-    &-text {
-      padding-left: 1.6rem;
-    }
-  }
-
+  // couper le bas et le haut du bg pour les mettre dans des divs à part qui auront height: $padding-section;
 }
+
 
 .cube {
   &-left {

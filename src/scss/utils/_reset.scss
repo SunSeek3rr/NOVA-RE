@@ -7,3 +7,9 @@
     padding-block: 0;
     box-sizing: border-box;
 }
+
+svg, svg * {
+    overflow: hidden !important;
+    pointer-events: none !important;
+    touch-action: none !important;
+}

@@ -166,3 +166,18 @@ tlIntro
 //   .to(".blob-blur--downRight", { clipPath: `path('${downRightPaths.blob4}')`, duration: duration, ease: "linear"  })
 //   .to(".blob-blur--downRight", { clipPath: `path('${downRightPaths.blob2}')`, duration: duration, ease: "linear" })
 //   .to(".blob-blur--downRight", { clipPath: `path('${document.querySelector('#downRight-clip path').getAttribute('d')}')`, duration: duration, ease: "linear" });
+
+
+// const sections = document.querySelectorAll('body *');
+
+// const observer = new IntersectionObserver((entries) => {
+//   entries.forEach(entry => {
+//     if (entry.isIntersecting) {
+//       console.log(`Tu es dans : ${entry.target.id || entry.target.className}`);
+//     }
+//   });
+// }, {
+//   threshold: 0.5 // 50% visible = section active
+// });
+
+// sections.forEach(section => observer.observe(section));
