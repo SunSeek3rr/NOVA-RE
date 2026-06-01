@@ -2,28 +2,301 @@ $bg-color: #00001D;
 $title-color: #AEFFEE;
 $text-color: #DFFFF8;
 $accent-color: #0CFFCE;
-$material-bg-color: linear-gradient(180deg, #022E39 0%, #043038 100%);
+$mat-bg-color: linear-gradient(180deg, #022E39 0%, #043038 100%);
 
-$font-size-h1: 6.4rem;
-$font-size-h2: 3.2rem;
-$font-size-h3: 2.3rem;
-$font-size-text-big: 2.3rem;
-$font-size-text: 1.6rem;
+$f-title: "JetBrains Mono", monospace;
+$f-title-ls: -6%;
+$f-global: "Manrope", sans-serif;
 
-$margin-spacing-h2: 2.4rem;
+$bp-xs: 0;          // small mobile
+$bp-sm: 430px;      // large mobile
+$bp-md: 820px;      // iPad (portrait)
+$bp-lg: 1024px;     // xs desktop - iPad (landscape)
+$bp-xl: 1440px;     // small desktop
+$bp-xxl: 1600px;    // large desktop
 
-$margin-global: 1.6rem;
-$margin-global-half: calc($margin-global / 2);
-$margin-bottom-h2: 8rem;
-$margin-bottom-h3: 3.2rem;
-$margin-left-list: 2rem;
-$margin-end-list: 4.8rem;
-$margin-text-global: 3.2rem;
-$margin-text-big: 6.4rem;
-$margin-bottom-section: 8rem;
-$margin-top-intro: 25.6rem;
-$margin-intro-blob: 8rem;
+:root {
 
-$padding-section: 8rem;
-$padding-material-h2: 1.2rem;
-$padding-text-list: 1.6rem;
+    // Cubes
+    --cube-size: 1.2rem;
+    --list-cube-size: .8rem;
+
+    // Arrow
+    --arrow-size: 1.6rem;
+    // Font-size
+    --fs-h1: 6.4rem;
+    --fs-h2: 3.2rem;
+    --fs-h2-tr: clamp(4.3rem, 3.2714rem + 2.8571vw, 4.5rem);
+    --fs-h3: 2.3rem;
+    --fs-h3-tr: 3.2rem;
+
+    --fs-text: 1.6rem;
+    --fs-text-big: 2.3rem;
+
+    --fs-text-fo: 1.1rem;
+    --fs-subtitle-fo: 1.6rem;
+    --fs-p-fo: .8rem;
+
+
+    // Global
+    --padding-global: 1.6rem;
+    --padding-global-half: calc(var(--padding-global) / 2);
+
+    --padding-global-prev: 1.6rem;
+
+    --padding-section: 8rem;
+
+    --margin-btm-h2: 8rem;
+    --margin-left-right-h2: 2.4rem;
+
+    --margin-text-global: 3.2rem;
+    --margin-text-big: 6.4rem;
+
+    --margin-btm-list-end: 4.8rem;
+
+    --gap-section: 14.4rem;
+
+
+    //Landing
+    --margin-btm-h1: 1.6rem;
+    --margin-top-title-container: -var(--margin-btm-h1);
+
+
+    // Intro
+    --margin-top-intro: 25.6rem;
+    --margin-btm-intro: 8rem;
+
+    --margin-intro-blob: 8rem;
+
+
+    // Material
+    --padding-h2-mat: 1.2rem;
+    --padding-left-list-text-mat: 1.6rem;
+
+    --margin-btm-h3-mat: 3.2rem;
+    --margin-left-right-list-mat: 2rem;
+
+    --gap-list-mat: 4.8rem;
+
+    --after-width-mat: 0;
+    --after-left-mat: 0;
+    // Transformation
+    --margin-left-list-tr: 2.4rem;
+
+    --margin-btm-h2-tr: 2.4rem;
+
+    --margin-btm-title-container-tr: 12.8rem;
+
+    --gap-list-tr: 3.2rem;
+
+
+    // Footer
+    --padding-wrapper: 0;
+
+    --margin-top-fo: 14.4rem;
+    --margin-btm-h2-fo: 3.2rem;
+
+    --gap-list-vertical-fo: 1.6rem;
+    --gap-list-horizontal-fo: 2.4rem;
+
+}
+
+@media (min-width: $bp-sm) {
+    :root {
+
+    // Cubes
+    --cube-size: 1.6rem;
+    --list-cube-size: 1rem;
+
+
+    // Font-size
+    --fs-h1: 9rem;
+    --fs-h2-tr: clamp(4.5rem, -0.7351rem + 12.1622vw, 9rem);
+
+
+    // Global
+    --padding-global: 3.2rem;
+    --padding-global-half: calc(var(--padding-global) / 2);
+
+
+    // Landing
+    --margin-btm-h1: 3.2rem;
+
+    // Material
+    --margin-left-right-list-mat: 3.2rem;
+
+    }
+}
+
+@media (min-width: $bp-md) {
+    :root {
+
+    // Cubes
+    --cube-size: 2.4rem;
+    --list-cube-size: 1.2rem;
+    
+    // Arrow
+    --arrow-size: 3.2rem;
+
+    // Font-size
+    --fs-h1: 12.8rem;
+    --fs-h2: 4.5rem;
+    --fs-h2-tr: 9rem;
+    --fs-h3: 3.2rem;
+    --fs-h3-tr: 4.5rem;
+
+    --fs-text: 2.3rem;
+    --fs-text-big: 3.2rem;
+
+    --fs-text-fo: 1.6rem;
+    --fs-subtitle-fo: 2.3rem;
+    --fs-p-fo: 1.4rem;
+
+
+    // Global
+    --padding-global: 6.4rem;
+    --padding-global-half: calc(var(--padding-global) / 2);
+    
+    --padding-global-prev: 3.2rem;
+
+    --padding-section: 12.8rem;
+
+    --margin-btm-h2: 11.2rem;
+    --margin-left-right-h2: 3.2rem;
+
+    --margin-text-global: 6.4rem;
+    --margin-text-big: 8rem;
+
+    --margin-btm-list-end: 6.4rem;
+
+    --gap-section: 11.2rem;
+
+
+    //Landing
+    --margin-btm-h1: 4.8rem;
+
+
+    // Intro
+    --margin-btm-intro: 11.2rem;
+
+
+    // Material
+    --padding-h2-mat: 2.4rem;
+
+    --gap-list-mat: 6.4rem;
+
+
+    // Transformation
+    --margin-left-list-tr: 3.2rem;
+
+    --margin-btm-h2-tr: 3.2rem;
+
+    --margin-btm-title-container-tr: 14.4rem;
+
+    --gap-list-tr: 4.8rem;
+
+
+    // Footer
+    --padding-wrapper: 9.6rem;
+
+    --margin-top-fo: 24rem;
+    --margin-btm-h2-fo: 4.8rem;
+
+    --gap-list-vertical-fo: 2.4rem;
+    --gap-list-horizontal-fo: 4.8rem;
+
+    }
+}
+
+@media (min-width: $bp-xl) {
+    :root {
+
+    // Cubes
+    --cube-size: 3.2rem;
+
+
+    // Font-size
+    --fs-h2: 6.4rem;
+    --fs-h2-tr: 12.8rem;
+
+
+    // Global
+    --padding-global: 9.6rem;
+    --padding-global-half: calc(var(--padding-global) / 2);
+
+    --padding-global-prev: 6.4rem;
+
+    --margin-btm-h2: 14.4rem;
+    --margin-left-right-h2: 4.8rem;
+
+    --margin-btm-list-end: 16rem;
+
+
+    // Intro
+    --margin-top-intro: 24rem;
+
+
+    // Material
+    --padding-left-list-text-mat: 0rem;
+
+    // --gap-list-mat: space-between;
+
+
+    // Transformation
+    --margin-btm-h2-tr: 6.4rem;
+
+
+    // Footer
+    --padding-wrapper: 16rem;
+
+    --margin-btm-h2-fo: 6.4rem;
+
+    --gap-list-horizontal-fo: 6.4rem;
+
+    }
+}
+
+@media (min-width: $bp-xxl) {
+    :root {
+
+
+    // Font-size
+    --fs-p-fo: 1.6rem;
+
+
+    // Global
+    --padding-global: 11.2rem;
+    --padding-global-half: calc(var(--padding-global) / 2);
+
+    --padding-global-prev: 9.6rem;
+
+    --padding-section: 19.2rem;
+
+    --margin-btm-h2: 16rem;
+    --margin-left-right-h2: 6.4rem;
+
+    --gap-section: 28.8rem;
+
+
+    //Landing
+    --margin-btm-h1: 6.4rem;
+
+
+    // Intro
+    --margin-top-intro: 27.2rem;
+
+
+    // Transformation
+    --margin-btm-h2-tr: 8rem;
+
+
+    // Footer
+    --padding-wrapper: 33.6rem;
+
+    --margin-top-fo: 28.8rem;
+    --margin-btm-h2-fo: 9.6rem;
+
+    --gap-list-horizontal-fo: 11.2rem;
+
+    }
+}
