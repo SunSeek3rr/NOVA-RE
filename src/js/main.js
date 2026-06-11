@@ -16,11 +16,7 @@ if(ScrollTrigger.isTouch !== 1){
 
 }
 
-let windowWidth;
-
-window.addEventListener('DOMContentLoaded', () => {
-  windowWidth = window.innerWidth;
-});
+let windowWidth = window.innerWidth;
 
 const textSections = document.querySelectorAll('.intro, .material__section, .transformation__section, .change, .about');
 
@@ -70,7 +66,6 @@ textSections.forEach((section, index) => {
         start: customStart,
         end: customEnd,
         toggleActions: "restart reverse restart reverse",
-        markers: true,
         scrub: true
       }
     }
@@ -96,7 +91,6 @@ textEms.forEach((em) => {
         start: "top 75%",
         end: "top 50%",
         toggleActions: "restart reverse restart reverse",
-        // markers: true,
         scrub: true
       }
     }
@@ -107,8 +101,6 @@ const idLinks = document.querySelectorAll('a[href^="#"]');
 
 idLinks.forEach((link, index)=>{
   link.addEventListener("click", (e)=> {
-
-    // e.preventDefault();
 
     const id = link.getAttribute('href');
 
